@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <title>POKE WORLD</title>
+
+        <!-- CSS  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    </head>
+    <body>
+
+        <nav class="light-red lighten-1" role="navigation">
+            <div class="nav-wrapper container"><a id="logo-container" href="index.php" class="brand-logo">Never Crash Plane</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+
+      <div class="parallax-container">
+        <div class="parallax"><img src="img/top.jpg"></div>
+      </div>
+      <div class="section white">
+        <div class="row container">
+          <h2 class="header">Flight Search</h2>
+          <form name="pokemon" method="GET" action="pokemon.php">
+              Start From: <input type="text" name="pokemon" value="" /> <br>
+              Where To: <input type="text" name="pokemon" value="" />
+              <input id="download-button" class= "btn-large waves-effect waves-light orange" type="submit" value="Go!" action ="pokemon.php"/>
+          </form>
+        </div>
+      </div>
+      <div class="parallax-container">
+        <div class="parallax"><img src="img/bottom.jpg"></div>
+      </div>
+
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
+        <script src="main.js"></script>
+    </body>
+
+
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2017 Never Crash <br>
+                If you want to add any information, please contacnt 123456@gmail.com to get permission.
+            </div>
+        </div>
+    </footer>
+</html>
