@@ -14,6 +14,7 @@
     "lodash": "^4.17.4",
     "method-override": "^2.3.10",
     "mongoose": "^4.10.8",
+    "node-dijkstra": "^2.5.0",
     "node-restful": "^0.2.6",
     "resourcejs": "^1.9.0"
   }
