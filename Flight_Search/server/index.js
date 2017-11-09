@@ -4,6 +4,17 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var _ = require('lodash');
 
+const Graph = require('node-dijkstra');
+const route = new Graph();   //shortest path algorithm
+
+var start = 'SanFrancisco';
+var end = 'LosAngeles';
+
+route.addNode('SanFrancisco', { SanDiago:1 });
+route.addNode('SanDiago', { SanFrancisco:1, Sacramento:2, LosAngeles:4 });
+route.addNode('Sacramento', { SanDiago:2, LosAngeles:1 });
+route.addNode('LosAngeles', { Sacramento:1, SanDiago:4 });   //added node
+
 // Create the application.
 var app = express();
 
@@ -34,5 +45,6 @@ mongoose.connection.once('open', function() {
   });
 
   console.log('Listening on port 8000...');
+  console.log(route.path(start, end));
   app.listen(8000);
 });
