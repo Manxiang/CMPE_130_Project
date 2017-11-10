@@ -5,16 +5,25 @@ var methodOverride = require('method-override');
 var _ = require('lodash');
 
 const Graph = require('node-dijkstra');
+const Graph_all = require('node-all-paths');
+
 const route = new Graph();   //shortest path algorithm
+const graph = new Graph_all();   //all paths possible
 
 var start = 'SanFrancisco';
 var end = 'LosAngeles';
 
+var st = 'SanFrancisco';
+var en = 'LosAngeles';
 route.addNode('SanFrancisco', { SanDiago:1 });
 route.addNode('SanDiago', { SanFrancisco:1, Sacramento:2, LosAngeles:4 });
 route.addNode('Sacramento', { SanDiago:2, LosAngeles:1 });
 route.addNode('LosAngeles', { Sacramento:1, SanDiago:4 });   //added node
 
+graph.addNode('SanFrancisco', { SanDiago:1 });
+graph.addNode('SanDiago', { Sacramento:2, LosAngeles: 4 });
+graph.addNode('Sacramento', { LosAngeles:1 });
+graph.addNode('LosAngeles', { });
 // Create the application.
 var app = express();
 
@@ -31,6 +40,13 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.get('/', function(req, res){
+  res.send(graph.path(st, en));
+});
+
+app.get('/best', function(req, res){
+  res.send(route.path(start, end));
+});
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost/meanapp');
 mongoose.connection.once('open', function() {
@@ -45,6 +61,6 @@ mongoose.connection.once('open', function() {
   });
 
   console.log('Listening on port 8000...');
-  console.log(route.path(start, end));
+  // console.log(route.path(start, end));
   app.listen(8000);
 });
