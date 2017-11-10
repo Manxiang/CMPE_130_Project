@@ -41,11 +41,11 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res){
-  res.send(graph.path(st, en));
+  res.send(graph.path(st, en, {cost: true}));
 });
 
 app.get('/best', function(req, res){
-  res.send(route.path(start, end));
+  res.send(route.path(start, end, {cost: true}));
 });
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost/meanapp');
