@@ -27,7 +27,7 @@ graph.addNode('LosAngeles', { });
 // Create the application.
 var app = express();
 
-// Add Middleware necessary for REST API's
+// Add Middleware necessary for REST API'
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(methodOverride('X-HTTP-Method-Override'));
@@ -49,6 +49,7 @@ app.get('/best', function(req, res){
 });
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost/meanapp');
+
 mongoose.connection.once('open', function() {
 
   // Load the models.
@@ -61,6 +62,6 @@ mongoose.connection.once('open', function() {
   });
 
   console.log('Listening on port 8000...');
-  // console.log(route.path(start, end));
+
   app.listen(8000);
 });
