@@ -1,3 +1,43 @@
-<h1>RESULT PAGE</h1>
-<p>{{data1}}</p>
-<p>{{data2}}</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="init.js"></script>
+
+
+<div class="section">
+
+    <div class = "top">
+      <h1 class="header center black-text">Result</h1>
+    </div>
+
+    {{#if data2 }}
+            <p> {{data3}} </p>
+        {{else}}
+        <table class = "centered">
+          <thead>
+            <tr>
+              <th>Start</th>
+              <th>Destination</th>
+              <th>Cities</th>
+              <th>Distance</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            <tr>
+              <td>{{start}}</td>
+              <td>{{end}}</td>
+              <td>{{data1.path}}</td>
+              <td>{{data1.cost}} miles</td>
+            </tr>
+        </tbody>
+       </table>
+    {{/if}}
+
+</div>
+
+
+<style>
+.section{
+   height: 793px;
+  background-image: url("images/trans_tp.png");
+}
+</style>

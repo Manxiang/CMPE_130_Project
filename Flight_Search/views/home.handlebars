@@ -1,10 +1,259 @@
-<h1>Example App: Home</h1>
-<p>{{data}}</p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="init.js"></script>
 
-<form method='post' action='/resultPage'>
-     <p> Please Enter the started location </p>
-     <input name="start_location" value="stackoverflow0"/><br>
-      <p> Please Enter the ended location </p>
-     <input name="end_location" value="stackoverflow1"/> <br>
-     <button type='submit'>Click</button>
-</form>
+  </div>
+
+  <div class="section">
+
+    <div class="fixed-action-btn horizontal">
+      <a class="btn-floating btn-small red">
+        <i class="large material-icons">person_outline</i>
+      </a>
+
+      <ul>
+        <li><a class="btn-floating btn-small red modal-trigger" href = "#reg"><i class="material-icons">add</i></a></li>
+        <li><a class="btn-floating btn-small yellow darken-1 modal-trigger" href = "#sign"><i class="material-icons">assignment_turned_in</i></a></li>
+      </ul>
+    </div>
+
+    <div id="reg" class="modal">
+      <div class="modal-content">
+        <h4>Register</h4>
+        <form method='post' action='/resultPage' class = "col s12">
+
+            <div class="input-field col s6">
+              <input name = "user_name" id="user_name" type="text" class="validate">
+              <label for="user_name"><b>User Name</b></label>
+            </div>
+
+            <div class="input-field col s6">
+              <input name = "password" id="password" type="password" class="validate">
+              <label for="last_name"><b>Password</b></label>
+            </div>
+
+            <div class="modal-footer">
+             <button class="btn-flat waves-effect waves-light btn-large" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+            </div>
+        </button>
+        </form>
+      </div>
+    </div>
+
+    <div id="sign" class="modal">
+      <div class="modal-content">
+        <h4>Log In</h4>
+        <form method='post' action='/resultPage' class = "col s12">
+
+            <div class="input-field col s6">
+              <input name = "user_name" id="user_name" type="text" class="validate">
+              <label for="user_name"><b>User Name</b></label>
+            </div>
+
+            <div class="input-field col s6">
+              <input name = "password" id="password" type="password" class="validate">
+              <label for="last_name"><b>Password</b></label>
+            </div>
+
+            <div class="modal-footer">
+             <button class="btn-flat waves-effect waves-light btn-large" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+            </div>
+        </button>
+        </form>
+      </div>
+    </div>
+
+      <div class="container">   <!--container-->
+        <br><br>
+        <div class = "top">
+          <h1 class="header center black-text">Search Flight</h1>
+        </div>
+        <div class="row center">
+
+
+          <div class="row">
+            <div class="col s12">
+              <ul class = tabs>
+                <div class="indicator yellow" style="z-index:1"></div>
+                <li class="tab col s3"><a class = "act" href="#test1">Location</a></li>
+                <li class="tab col s3"><a class = "disa" href="#test2">Distance</a></li>
+
+              </ul>
+            </div>
+            <div id="test1" class="col s12">
+              <form method='post' action='/resultPage' class = "col s12">
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input name = "start_location" id="From" type="text" class="validate">
+                    <label for="first_name"><b>From</b></label>
+                  </div>
+
+                  <div class="input-field col s6">
+                    <input name = "end_location" id="To" type="text" class="validate">
+                    <label for="last_name"><b>To</b></label>
+                  </div>
+                </div>
+                   <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
+              </form>
+            </div>
+
+
+            <div id="test2" class="col s12">
+              <form method='post' action='/resultPage' class = "col s12">
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input name = "start_location" id="From" type="text" class="validate">
+                    <label for="first_name"><b>From</b></label>
+                  </div>
+
+                  <div class="input-field col s6">
+                    <input name = "distance" id="distance" type="text" class="validate">
+                    <label for="last_name"><b>Distance (miles)</b></label>
+                  </div>
+                </div>
+                   <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
+              </form>
+            </div>
+          </div>
+
+
+        </div>
+        <br><br>
+      </div>
+
+    <div class="row">
+
+      <div class="col s12 m4">
+
+                  <div class="card medium">
+                    <div class="card-image">
+                      <img src="images/ha.jpg">
+                      <span class="card-title">Hawaii Beach</span>
+                    </div>
+                    <div class="card-content">
+                      <p>Hawaii is warm year-round and most popular during the winter months,
+                            when surfing conditions are optimal and whales travel offshore.</p>
+                    </div>
+                    <div class="card-action">
+                      <a href="#">Get Routes</a>
+                    </div>
+                  </div>
+      </div>
+
+      <div class="col s12 m4">
+                  <div class="card medium">
+                    <div class="card-image">
+                      <img src="images/sf.jpg">
+                      <span class="card-title">Golden Gate Bridge</span>
+                    </div>
+                    <div class="card-content">
+                      <p>The Golden Gate Bridge is a suspension bridge spanning the Golden Gate,
+                        the one-mile-wide (1.6 km) strait connecting San Francisco Bay and the Pacific Ocean. </p>
+                    </div>
+                    <div class="card-action">
+                      <a href="#">Get Routes</a>
+                    </div>
+                  </div>
+      </div>
+
+      <div class="col s12 m4">
+
+                        <div class="card medium">
+                          <div class="card-image">
+                            <img src="images/ta.jpg">
+                            <span class="card-title">Lake Tahoe</span>
+                          </div>
+                          <div class="card-content">
+                            <p>Basking in its 300 days of sunshine, Lake Tahoe is a haven for outdoor fun in every season.
+                                    Swimming, kayaking and windsurfing are popular in the summer months. </p>
+                          </div>
+                          <div class="card-action">
+                            <a href="#">Get Routes</a>
+                          </div>
+                        </div>
+    </div>
+</div>
+</div>
+
+
+<style>
+.card-image img {
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.card-image:hover img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.parallax-container {
+  height: 300px;
+}
+
+.section{
+  background-image: url("images/trans_tp.png");
+}
+
+.input-field label {
+  color: black;
+}
+
+.input-field input[type=text]:focus {
+     border-bottom: 1px solid #FFFFFF;
+     /*box-shadow: 0 1px 0 0 #000;*/
+   }
+
+.tabs{
+  background-color: #0000;
+}
+
+.tabs a.act {
+  color:black!important;
+  /*width: 120px;*/
+}
+
+.tabs a.disa {
+  color:black!important;
+  /*width: 120px;*/
+}
+
+.fixed-action-btn {
+  position: fixed;
+  right: 23px;
+  bottom: 700px;
+  padding-top: 15px;
+  margin-bottom: 0;
+  z-index: 997;
+}
+
+}
+
+.fixed-action-btn.active ul {
+  visibility: visible;
+}
+
+.fixed-action-btn.horizontal ul {
+  text-align: right;
+  right: 50px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 100%;
+  left: auto;
+  width: 500px;
+  /*width 100% only goes to width of button container */
+}
+
+.fixed-action-btn.horizontal ul li {
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+</style>
