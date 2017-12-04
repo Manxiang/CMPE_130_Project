@@ -19,15 +19,15 @@
     <div id="reg" class="modal">
       <div class="modal-content">
         <h4>Register</h4>
-        <form method='post' action='/resultPage' class = "col s12">
+        <form method='post' action='/register' class = "col s12">
 
             <div class="input-field col s6">
-              <input name = "user_name" id="user_name" type="text" class="validate">
+              <input name = "newuser_name" id="user_name" type="text" class="validate">
               <label for="user_name"><b>User Name</b></label>
             </div>
 
             <div class="input-field col s6">
-              <input name = "password" id="password" type="password" class="validate">
+              <input name = "newpassword" id="password" type="password" class="validate">
               <label for="last_name"><b>Password</b></label>
             </div>
 
@@ -38,12 +38,12 @@
         </button>
         </form>
       </div>
-    </div>
+    </div>  <!--REGISTER-->
 
     <div id="sign" class="modal">
       <div class="modal-content">
         <h4>Log In</h4>
-        <form method='post' action='/resultPage' class = "col s12">
+        <form method='post' action='/user' class = "col s12">
 
             <div class="input-field col s6">
               <input name = "user_name" id="user_name" type="text" class="validate">
@@ -78,9 +78,10 @@
                 <div class="indicator yellow" style="z-index:1"></div>
                 <li class="tab col s3"><a class = "act" href="#test1">Location</a></li>
                 <li class="tab col s3"><a class = "disa" href="#test2">Distance</a></li>
-
+                <li class="tab col s3"><a class = "price" href="#test3" span style = "color: black">Price</a></li>
               </ul>
             </div>
+
             <div id="test1" class="col s12">
               <form method='post' action='/resultPage' class = "col s12">
                 <div class="row">
@@ -119,13 +120,32 @@
               </button>
               </form>
             </div>
-          </div>
 
+
+            <div id="test3" class="col s12">
+              <form method='post' action='/resultPage' class = "col s12">
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input name = "start_location" id="From" type="text" class="validate">
+                    <label for="first_name"><b>From</b></label>
+                  </div>
+
+                  <div class="input-field col s6">
+                    <input name = "price" id="price" type="text" class="validate">
+                    <label for="last_name"><b span style ="color: black">Price (dollars)</b></label>
+                  </div>
+                </div>
+                   <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+              </button>
+              </form>
+            </div>
+          </div>
 
         </div>
         <br><br>
       </div>
-
+    <h4 span style = "margin-left: 20px">Popular Destinations:</h4>
     <div class="row">
 
       <div class="col s12 m4">
@@ -140,10 +160,33 @@
                             when surfing conditions are optimal and whales travel offshore.</p>
                     </div>
                     <div class="card-action">
-                      <a href="#">Get Routes</a>
+                      <a class="modal-trigger" href = "#Hawaii">Get Routes</a>
                     </div>
                   </div>
       </div>
+
+      <div id="Hawaii" class="modal">
+        <div class="modal-content">
+          <form method='post' action='/resultPage' class = "col s12">
+              <div class="input-field col s6">
+                <input name = "start_location" id="From" type="text" class="validate">
+                <label for="user_name"><b>From</b></label>
+              </div>
+
+              <div class="input-field col s6">
+                <input value = "Hawaii" name = "end_location" id="To" type="text" class="validate">
+                <label for="last_name"><b>To</b></label>
+              </div>
+
+
+               <button span style = "margin-left: 600px" class="btn-flat waves-effect waves-light btn-large" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+
+          </button>
+          </form>
+        </div>
+      </div>
+
 
       <div class="col s12 m4">
                   <div class="card medium">
@@ -156,9 +199,31 @@
                         the one-mile-wide (1.6 km) strait connecting San Francisco Bay and the Pacific Ocean. </p>
                     </div>
                     <div class="card-action">
-                      <a href="#">Get Routes</a>
+                      <a class="modal-trigger" href = "#SanFrancisco">Get Routes</a>
                     </div>
                   </div>
+      </div>
+
+      <div id="SanFrancisco" class="modal">
+        <div class="modal-content">
+          <form method='post' action='/resultPage' class = "col s12">
+              <div class="input-field col s6">
+                <input name = "start_location" id="From" type="text" class="validate">
+                <label for="user_name"><b>From</b></label>
+              </div>
+
+              <div class="input-field col s6">
+                <input value = "SanFrancisco" name = "end_location" id="To" type="text" class="validate">
+                <label for="last_name"><b>To</b></label>
+              </div>
+
+
+               <button span style = "margin-left: 600px" class="btn-flat waves-effect waves-light btn-large" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+
+          </button>
+          </form>
+        </div>
       </div>
 
       <div class="col s12 m4">
@@ -173,9 +238,30 @@
                                     Swimming, kayaking and windsurfing are popular in the summer months. </p>
                           </div>
                           <div class="card-action">
-                            <a href="#">Get Routes</a>
+                            <a class="modal-trigger" href = "#Tahoe">Get Routes</a>
                           </div>
                         </div>
+    </div>
+
+    <div id="Tahoe" class="modal">
+      <div class="modal-content">
+        <form method='post' action='/resultPage' class = "col s12">
+            <div class="input-field col s6">
+              <input name = "start_location" id="From" type="text" class="validate">
+              <label for="user_name"><b>From</b></label>
+            </div>
+
+            <div class="input-field col s6">
+              <input value = "Tahoe" name = "end_location" id="To" type="text" class="validate">
+              <label for="last_name"><b>To</b></label>
+            </div>
+
+             <button span style = "margin-left: 600px" class="btn-flat waves-effect waves-light btn-large" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+
+        </button>
+        </form>
+      </div>
     </div>
 </div>
 </div>
@@ -217,12 +303,12 @@
 
 .tabs a.act {
   color:black!important;
-  /*width: 120px;*/
+
 }
 
 .tabs a.disa {
   color:black!important;
-  /*width: 120px;*/
+
 }
 
 .fixed-action-btn {

@@ -1,6 +1,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="init.js"></script>
-
+<!-- <script>
+Handlebars.registerHelper( 'eachInMap', function ( map, block ) {
+   var out = '';
+   Object.keys( map ).map(function( prop ) {
+      out += block.fn( {key: prop, value: map[ prop ]} );
+   });
+   return out;
+} );
+</script> -->
 
 <div class="section">
 
@@ -9,28 +17,53 @@
     </div>
 
     {{#if data2 }}
-            <p> {{data3}} </p>
-        {{else}}
-        <table class = "centered">
-          <thead>
-            <tr>
-              <th>Start</th>
-              <th>Destination</th>
-              <th>Cities</th>
-              <th>Distance</th>
-            </tr>
-         </thead>
+      {{#if data3}}
+      <h3 span style= "margin-left: 30px">Places You Can Go from {{start}}</h3>
+      <h6 span style = "margin-left: 30px"> {{paths}} </h6>
+      <h6 span style = "margin-left: 30px"> {{costs}} </h6>
+      <h6 span style = "margin-left: 30px"> {{data3}} </h6>
+      {{else}}
+        <h6> Sorry, we do not have flilghts at this distance range</p>
+      {{/if}}
 
-         <tbody>
-            <tr>
-              <td>{{start}}</td>
-              <td>{{end}}</td>
-              <td>{{data1.path}}</td>
-              <td>{{data1.cost}} miles</td>
-            </tr>
-        </tbody>
-       </table>
-    {{/if}}
+      {{else if price}}
+          {{#if data3}}
+            <p> {{data3}} </p>
+            {{else}}
+            <p>Sorry, we do not have flights at this price range.</p>
+          {{/if}}
+      {{else}}
+        {{#if data1.cost}}
+            <table class = "centered">
+              <thead>
+                <tr>
+                  <th>Start</th>
+                  <th>Destination</th>
+                  <th>Cities</th>
+                  <th>Distance</th>
+                  <th>Price</th>
+                </tr>
+             </thead>
+
+             <tbody>
+                <tr>
+                  <td>{{start}}</td>
+                  <td>{{end}}</td>
+                  {{#if data1.path}}
+                    <td>{{data1.path}}</td>
+                  {{else}}
+                    <td>Direct Flight</td>
+                  {{/if}}
+                  <td>{{data1.cost}} miles</td>
+                  <td>{{Nprice.cost}} dollars</td>
+                </tr>
+            </tbody>
+           </table>
+
+          {{else}}
+            <p>Sorry, we do not have flights at the location you entered</p>
+        {{/if}}
+    {{/if}}       <!--REGULAR EXPRESSION-->
 
 </div>
 

@@ -13,6 +13,7 @@
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "method-override": "^2.3.10",
+    "mongoose": "^4.13.5",
     "node-all-paths": "^1.0.3",
     "node-dijkstra": "^2.5.0",
     "nodemon": "^1.12.1"

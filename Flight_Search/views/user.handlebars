@@ -1,0 +1,194 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script src="init.js"></script>
+
+<div class="section">
+    {{#if check }}
+      <div class = "fsection">
+        <h1>Failed to authenticate to the website, please double check your user name and password</h1>
+        <a href = "http://localhost:8000/">Click To Continue</a>
+      </div>
+        {{else}}
+        <div class="fixed-action-btn horizontal">
+          <a class="btn-floating btn-small red">
+            <i class="large material-icons">person_outline</i>
+          </a>
+
+          <ul>
+            <li><a class="btn-floating btn-small red modal-trigger" href = "http://localhost:8000/"><i class="material-icons">arrow_back</i></a></li>
+            <!-- <li><a class="btn-floating btn-small yellow darken-1 modal-trigger" href = "#sign"><i class="material-icons">assignment_turned_in</i></a></li> -->
+          </ul>
+        </div>
+
+        <div class="container">   <!--container-->
+          <br><br>
+          <div class = "top">
+            <h1 class="header center black-text">Welcome {{name}}</h1>
+          </div>
+          <div class="row center">
+
+            <div class="row">
+              <div class="col s12">
+                <ul class = tabs>
+                  <div class="indicator yellow" style="z-index:1"></div>
+                  <li class="tab col s3"><a class = "act" href="#test1">Location</a></li>
+                  <li class="tab col s3"><a class = "disa" href="#test2">Distance</a></li>
+                  <li class="tab col s3"><a class = "price" href="#test3" span style = "color: black">Price</a></li>
+                </ul>
+              </div>
+
+              <div id="test1" class="col s12">
+                <form method='post' action='/resultPage' class = "col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input name = "start_location" id="From" type="text" class="validate">
+                      <label for="first_name"><b>From</b></label>
+                    </div>
+
+                    <div class="input-field col s6">
+                      <input name = "end_location" id="To" type="text" class="validate">
+                      <label for="last_name"><b>To</b></label>
+                    </div>
+                  </div>
+                     <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+                </button>
+                </form>
+              </div>
+
+
+              <div id="test2" class="col s12">
+                <form method='post' action='/resultPage' class = "col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input name = "start_location" id="From" type="text" class="validate">
+                      <label for="first_name"><b>From</b></label>
+                    </div>
+
+                    <div class="input-field col s6">
+                      <input name = "distance" id="distance" type="text" class="validate">
+                      <label for="last_name"><b>Distance (miles)</b></label>
+                    </div>
+                  </div>
+                     <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+                </button>
+                </form>
+              </div>
+
+
+              <div id="test3" class="col s12">
+                <form method='post' action='/resultPage' class = "col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input name = "start_location" id="From" type="text" class="validate">
+                      <label for="first_name"><b>From</b></label>
+                    </div>
+
+                    <div class="input-field col s6">
+                      <input name = "price" id="price" type="text" class="validate">
+                      <label for="last_name"><b span style ="color: black">Price (dollars)</b></label>
+                    </div>
+                  </div>
+                     <button class="btn waves-effect waves-light btn-large" type="submit" name="action">Submit
+                  <i class="material-icons right">send</i>
+                </button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+          <br><br>
+        </div>
+
+{{/if}}  <!--END OF IF STATEMENT-->
+</div>
+
+
+
+<style>
+
+.fsection{
+   height: 793px;
+   top: 0;
+  background-image: url("images/trans_tp.png");
+}
+
+.card-image img {
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.card-image:hover img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.parallax-container {
+  height: 300px;
+}
+
+.section{
+  height: 793px;
+  background-image: url("images/trans_tp.png");
+}
+
+.input-field label {
+  color: black;
+}
+
+.input-field input[type=text]:focus {
+     border-bottom: 1px solid #FFFFFF;
+     /*box-shadow: 0 1px 0 0 #000;*/
+   }
+
+.tabs{
+  background-color: #0000;
+}
+
+.tabs a.act {
+  color:black!important;
+  /*width: 120px;*/
+}
+
+.tabs a.disa {
+  color:black!important;
+  /*width: 120px;*/
+}
+
+.fixed-action-btn {
+  position: fixed;
+  right: 23px;
+  bottom: 700px;
+  padding-top: 15px;
+  margin-bottom: 0;
+  z-index: 997;
+}
+
+}
+
+.fixed-action-btn.active ul {
+  visibility: visible;
+}
+
+.fixed-action-btn.horizontal ul {
+  text-align: right;
+  right: 50px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 100%;
+  left: auto;
+  width: 500px;
+  /*width 100% only goes to width of button container */
+}
+
+.fixed-action-btn.horizontal ul li {
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+</style>
